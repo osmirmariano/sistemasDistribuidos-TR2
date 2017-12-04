@@ -75,7 +75,7 @@ public class Balanceamento {
                 n_local++;
             }
 
-            for(int m=1; m<=quantProcesso-1; m++){
+            for(m = 1; m <= quantProcesso-1; m++){
                 status = MPI.COMM_WORLD.Recv(soma, 0 , 1, MPI.DOUBLE, m, 10);
                 System.out.println("Recebido somapar = " + soma[0] + " de proc " + status.source);
                 somatotal=somatotal+soma[0];
@@ -92,7 +92,7 @@ public class Balanceamento {
             time = (long) (tempoFinal - tempoInicial);	
             System.out.println("Soma total: " + somatotal + " Tempo = " + nf.format((double)time) + " em segs");
 
-            for(int m=1; m<=quantProcesso-1; m++){
+            for(m = 1; m <= quantProcesso-1; m++){
                 //System.out.println("Envio de kill para proc: " + m);    
                 MPI.COMM_WORLD.Send(val, 0, 3, MPI.DOUBLE, m, DIETAG);
             }

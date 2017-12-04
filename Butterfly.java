@@ -6,10 +6,10 @@ public class Butterfly {
         return 2*(Math.pow(x, 3.0) + Math.pow(x, 2.0) + x + 1.0);
     }
 
-    static double integrar(double a, double b, double h) {
+    static double integrar(double a, double b, double h) { //area total
         int i;
         double n = (b - a)/h;
-        double soma = 0.5 * (f(a) + f(b));    // area
+        double soma = 0.5 * (f(a) + f(b));    
         for (i = 1; i < n; i++) {
            double x = a + h * i;
            soma = soma + f(x);
@@ -27,11 +27,11 @@ public class Butterfly {
         double soma[] = new double[1];
         double somatotal;
         
-        //verifica se número de processos é potencia de 2
-        if (!((Integer.parseInt(args[1]) > 0) && ((Integer.parseInt(args[1]) & (Integer.parseInt(args[1]) - 1)) == 0))){
-            System.out.println("Quantidade de processos deve ser potencia de 2");
-            System.exit(0);
-        } 
+        
+        //if (!((Integer.parseInt(args[1]) > 0) && ((Integer.parseInt(args[1]) & (Integer.parseInt(args[1]) - 1)) == 0))){
+          //  System.out.println("Quantidade de processos deve ser potencia de 2");
+          //  System.exit(0);
+      //  } 
 
         MPI.Init(args); //Inícia parte distribuída/paralelo
         idProcesso = MPI.COMM_WORLD.Rank(); //Pega o id do processo
