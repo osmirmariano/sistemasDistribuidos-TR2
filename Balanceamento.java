@@ -49,7 +49,7 @@ public class Balanceamento {
 
             n = (int)(b-a)/h; //determinar quantidade de intervalos
             System.out.println("INTERVALOS: "+n);
-            size = 10;
+            size = 1000;
             ntasks = (int)n/size;
             n_local = 0;
             

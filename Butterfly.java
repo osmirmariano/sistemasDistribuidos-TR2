@@ -27,11 +27,7 @@ public class Butterfly {
         double soma[] = new double[1];
         double somatotal;
         
-        
-        //if (!((Integer.parseInt(args[1]) > 0) && ((Integer.parseInt(args[1]) & (Integer.parseInt(args[1]) - 1)) == 0))){
-          //  System.out.println("Quantidade de processos deve ser potencia de 2");
-          //  System.exit(0);
-      //  } 
+    
 
         MPI.Init(args); //Inícia parte distribuída/paralelo
         idProcesso = MPI.COMM_WORLD.Rank(); //Pega o id do processo
@@ -98,7 +94,7 @@ public class Butterfly {
             nf.setMaximumFractionDigits(6);
             nf.setMinimumFractionDigits(6);
 
-            time = (long) (tempoFinal - tempoInicio);	
+            time = (long) (tempoFinal - tempoInicio);   
             System.out.println("SOMA TOTAL: " + somatotal);
             System.out.println("TEMPO: " + nf.format((double)time) + " em segs");
         }

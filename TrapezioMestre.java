@@ -19,12 +19,10 @@ public class TrapezioMestre {
            double x = a + h * i;
            soma = soma + f(x);
         }
-
         return soma * h;
      }
 
     public static void main(String[] args) throws Exception{
-        
         double a, b, n, a_local, b_local, n_local;
         double h, startwtime, endwtime;
         int my_pe, npes;
@@ -34,14 +32,6 @@ public class TrapezioMestre {
         double val[] = new double[3];
         double soma[] = new double[1];
         double somatotal;
-
-        // a = 0.0;
-        // b = 100.0;
-        // h = 0.5;
-        // val[0] = a;
-        // val[1] = b;
-        // val[2] = h;
-
 
         MPI.Init(args); //inicia parte distribuída/paralelo
         my_pe = MPI.COMM_WORLD.Rank();//pega o id do processo
@@ -89,8 +79,7 @@ public class TrapezioMestre {
         } else {
             MPI.COMM_WORLD.Send(soma, 0, 1, MPI.DOUBLE, 0, 10);
         }
-
-
+        //finaliza a parte distribuída 
         MPI.Finalize();  //finaliza a parte distribuída 
     }
 
